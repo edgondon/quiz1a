@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quiz App</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <!--Question Page-->
+  <body>
+        <section class="question-page">
+            <form>
+                <!--question container-->
+                 <h3 >Who was the first Roman Emperor?</h3>
+                <fieldset>
+                  <legend> Question 1</legend>
+                  <label>
+                    <!--Answers container-->
+                    <input type="radio" name="option" checked>
+                    <span> a.) Julius Caesar </span>
+                  </label>
+                   <label>
+                    <input type="radio" name="option" >
+                    <span> b.) Mark Antony </span>
+                  </label>
+                   <label>
+                    <input type="radio" name="option" >
+                    <span> c.) Augustus </span>
+                  </label>
+                   <label>
+                    <input type="radio" name="option" >
+                    <span> d.) Cleopatra </span>
+                  </label>
+                </fieldset>
+                <a href="feedback.html" class="button" role="start-button">          Submit</a>
+            </form>
+          </section>
+                    <!--Status container-->
+            <div class='status-container'>
+                <!--Question Circle-->
+                <div class='question-circle'>
+                    <p class='question-status'>Question 1 out of 10</p>
+                </div>
+                <!--Score Circle-->
+                <div class='score-circle'>
+                    <p>Score zero out of ten</p>
+                </div>
+  </body>
+</html>
