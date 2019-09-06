@@ -57,11 +57,14 @@ const STORE = [
 
 
 function tally() {
-let score = 0;
-let query = 0;
+    let query = 1;
+    return query;
 };
 
-
+function score() {
+    let score = 0;
+    return score;
+};
 
 
 
@@ -74,7 +77,8 @@ function generateQuestion() {
     let i = 0;
     $("div.one").replaceWith(STORE[i]);
     console.log(`generateQuestion ran`);
-
+    $("p.question-status").replaceWith(`Question ${tally()} out of 10`);
+    $("p.current-score").replaceWith(`Score is ${score()} out of 10`);
 };
 
 
