@@ -50,27 +50,6 @@ const STORE = [
 ];
 
 
-const feeder = [
-    
-    `<!--Feedback Section-->
-    <section class="correct-feedback-page">
-      <div style="width:100%; height:400px;">
-        <h2> Correct Answer</h2>
-        <a href="end.html" class="button" role="start-button"> Next Question</a>
-      </div>
-    </section>`,
-
-    
-    `<section class="incorrect-feedback-page">
-      <div style="width:100%;height:400px;">
-       <h2>Incorrect Answer. The answer is "nononon"</h2>
-      <a href="end.html" class="button" role="start-button">   Proceed to Next Question..</a>
-      </div>
-    </section>`
-
-  
-];
-
 
 
 
@@ -83,11 +62,7 @@ let query = 0;
 };
 
 
-function generateFeedback() {
-    $("body.freed").replaceWith(feeder[0]);
-    
 
-};
 
 
 
@@ -106,6 +81,7 @@ function generateQuestion() {
 function selectAnswer() {
     $("section.question-page").click(function (event) {
     console.log(`ANSWER IS SELECTED`);
+
     if ($('input[class=yes]').is(':checked')) {
         correct();
         
@@ -119,7 +95,18 @@ function selectAnswer() {
 
 };
 
-
+function changeAnswer() {
+    $("section.question-page").click(function (event) {
+    
+    if ($('input[class=reset-button]').is(':checked')) {
+        location.reload();
+        
+    }
+    else {
+        console.log(`waiting for submit`);
+    };
+    });
+};
 
 
 
@@ -136,6 +123,7 @@ function submitAnswer() {
 function correct() {
     $("div.two").replaceWith(`
         <a href="feedbackYES.html" type="submit" class="button" role="start-button">          Submit</a>
+        <input type="radio" type="submit" class="reset-button" role="unknown"><span> Reselect Answer </span>
         `);
         console.log('correct');
 
@@ -143,8 +131,9 @@ function correct() {
 
 function wrong() {
     $("div.two").replaceWith(`
-    <a href="feedbackNO.html" type="submit" class="button" role="start-button">          Submit</a>
-    `);
+        <a href="feedbackNO.html" type="submit" class="button" role="start-button">          Submit</a>
+        <input type="radio" type="submit" class="reset-button" role="unknown"><span> Reselect Answer </span>
+        `);
         console.log('not correct');
 };
 
@@ -155,6 +144,7 @@ function wrong() {
 
 function makeQuiz() {
 selectAnswer();
+changeAnswer();
 generateQuestion();
 tally();
 submitAnswer();
